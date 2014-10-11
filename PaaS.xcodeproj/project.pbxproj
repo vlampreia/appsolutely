@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4D6067C719E99C4B0052B82A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067C619E99C4B0052B82A /* AppDelegate.swift */; };
-		4D6067C919E99C4B0052B82A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067C819E99C4B0052B82A /* ViewController.swift */; };
-		4D6067CC19E99C4B0052B82A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6067CA19E99C4B0052B82A /* Main.storyboard */; };
 		4D6067CE19E99C4B0052B82A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6067CD19E99C4B0052B82A /* Images.xcassets */; };
 		4D6067D119E99C4B0052B82A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6067CF19E99C4B0052B82A /* LaunchScreen.xib */; };
 		4D6067DD19E99C4B0052B82A /* PaaSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067DC19E99C4B0052B82A /* PaaSTests.swift */; };
 		4D6067E719E99D4B0052B82A /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067E619E99D4B0052B82A /* HTTP.swift */; };
+		C5FF109719E9A49800CA4C23 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FF109519E9A49800CA4C23 /* MainController.swift */; };
+		C5FF109819E9A49800CA4C23 /* MainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FF109619E9A49800CA4C23 /* MainController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +30,14 @@
 		4D6067C119E99C4B0052B82A /* PaaS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaaS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6067C519E99C4B0052B82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D6067C619E99C4B0052B82A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D6067C819E99C4B0052B82A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4D6067CB19E99C4B0052B82A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D6067CD19E99C4B0052B82A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D6067D019E99C4B0052B82A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4D6067D619E99C4B0052B82A /* PaaSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaaSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6067DB19E99C4B0052B82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D6067DC19E99C4B0052B82A /* PaaSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaaSTests.swift; sourceTree = "<group>"; };
 		4D6067E619E99D4B0052B82A /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		C5FF109519E9A49800CA4C23 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		C5FF109619E9A49800CA4C23 /* MainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +79,10 @@
 		4D6067C319E99C4B0052B82A /* PaaS */ = {
 			isa = PBXGroup;
 			children = (
+				C5FF109419E9A46500CA4C23 /* View */,
+				C5FF109019E9A36200CA4C23 /* Controller */,
 				4D6067C619E99C4B0052B82A /* AppDelegate.swift */,
-				4D6067C819E99C4B0052B82A /* ViewController.swift */,
 				4D6067E619E99D4B0052B82A /* HTTP.swift */,
-				4D6067CA19E99C4B0052B82A /* Main.storyboard */,
 				4D6067CD19E99C4B0052B82A /* Images.xcassets */,
 				4D6067CF19E99C4B0052B82A /* LaunchScreen.xib */,
 				4D6067C419E99C4B0052B82A /* Supporting Files */,
@@ -113,6 +113,22 @@
 				4D6067DB19E99C4B0052B82A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5FF109019E9A36200CA4C23 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C5FF109519E9A49800CA4C23 /* MainController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C5FF109419E9A46500CA4C23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5FF109619E9A49800CA4C23 /* MainController.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +211,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D6067CC19E99C4B0052B82A /* Main.storyboard in Resources */,
 				4D6067D119E99C4B0052B82A /* LaunchScreen.xib in Resources */,
 				4D6067CE19E99C4B0052B82A /* Images.xcassets in Resources */,
+				C5FF109819E9A49800CA4C23 /* MainController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6067E719E99D4B0052B82A /* HTTP.swift in Sources */,
-				4D6067C919E99C4B0052B82A /* ViewController.swift in Sources */,
+				C5FF109719E9A49800CA4C23 /* MainController.swift in Sources */,
 				4D6067C719E99C4B0052B82A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,14 +256,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4D6067CA19E99C4B0052B82A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D6067CB19E99C4B0052B82A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4D6067CF19E99C4B0052B82A /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -409,6 +417,7 @@
 				4D6067E219E99C4B0052B82A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D6067E319E99C4B0052B82A /* Build configuration list for PBXNativeTarget "PaaSTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +426,7 @@
 				4D6067E519E99C4B0052B82A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
