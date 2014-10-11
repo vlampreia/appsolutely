@@ -21,13 +21,14 @@ class ViewController: UIViewController {
         println(devices)
         
         
+        var req = HTTP(_URL: "http://www.stackoverflow.com");
+        req.Get({ (response: String?) in
+            if (response != nil) {
+                println(response!);
+            }
+        });
         
-        let url = NSURL(string: "http://www.stackoverflow.com")
-        let request = NSURLRequest(URL: url)
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
-        }
     }
 
     override func didReceiveMemoryWarning() {
