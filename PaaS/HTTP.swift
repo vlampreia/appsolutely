@@ -15,19 +15,22 @@ public class HTTP {
     init (_URL: String) {
         self.URL = NSURL(string: _URL);
     }
-//    
-//    func Get (callback: (NSString)) -> Void? {
-//        
-//        if (self.URL == nil) {
-//            return nil;
-//        }
-//        
-//        let request = NSURLRequest(URL: self.URL!);
-//        
-//        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-//            callback((NSString(data: data, encoding: NSUTF8StringEncoding)))
-//        }
-//        
-//    }
+    
+    func Get (callback: ((String?) -> Void)!) {
+        
+        if (self.URL == nil) {
+            
+            callback(nil);
+            
+        } else {
+        
+            let request = NSURLRequest(URL: self.URL!);
+        
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+                callback(NSString(data: data, encoding: NSUTF8StringEncoding))
+            }
+            
+        }
+    }
     
 }
