@@ -9,7 +9,7 @@
 import UIKit
 
 class MainController: UIViewController {
-    
+
     var activeViewContainer: UIView? = nil;
 //    var activeController:    
     
@@ -17,9 +17,12 @@ class MainController: UIViewController {
         super.viewDidLoad()
         
         self.initController()
-        self.loadAuthView()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.loadAuthView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,8 +38,8 @@ class MainController: UIViewController {
     }
     
     func loadAuthView () {
-        var authController = AuthController(nibName: "AuthController", bundle: nil);
-        self.setActiveViewWith(authController);
+        var authController = NewAuthViewController();
+        self.presentViewController(authController, animated: true, completion: nil)
     }
     
     func setActiveViewWith(controller:UIViewController) {
@@ -50,6 +53,8 @@ class MainController: UIViewController {
         self.activeViewContainer?.addSubview(controller.view);
         
     }
+    
+
     
 
     /*
