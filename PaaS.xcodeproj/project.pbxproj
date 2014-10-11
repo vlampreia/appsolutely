@@ -14,6 +14,8 @@
 		4D6067E719E99D4B0052B82A /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067E619E99D4B0052B82A /* HTTP.swift */; };
 		C5FF109719E9A49800CA4C23 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FF109519E9A49800CA4C23 /* MainController.swift */; };
 		C5FF109819E9A49800CA4C23 /* MainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FF109619E9A49800CA4C23 /* MainController.xib */; };
+		C5FF109B19E9A9A600CA4C23 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FF109919E9A9A600CA4C23 /* AuthController.swift */; };
+		C5FF109C19E9A9A600CA4C23 /* AuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FF109A19E9A9A600CA4C23 /* AuthController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		4D6067E619E99D4B0052B82A /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		C5FF109519E9A49800CA4C23 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		C5FF109619E9A49800CA4C23 /* MainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainController.xib; sourceTree = "<group>"; };
+		C5FF109919E9A9A600CA4C23 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		C5FF109A19E9A9A600CA4C23 /* AuthController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 		C5FF109019E9A36200CA4C23 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C5FF109919E9A9A600CA4C23 /* AuthController.swift */,
 				C5FF109519E9A49800CA4C23 /* MainController.swift */,
 			);
 			name = Controller;
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C5FF109619E9A49800CA4C23 /* MainController.xib */,
+				C5FF109A19E9A9A600CA4C23 /* AuthController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 				TargetAttributes = {
 					4D6067C019E99C4B0052B82A = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 756MSMTJ5A;
 					};
 					4D6067D519E99C4B0052B82A = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -212,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6067D119E99C4B0052B82A /* LaunchScreen.xib in Resources */,
+				C5FF109C19E9A9A600CA4C23 /* AuthController.xib in Resources */,
 				4D6067CE19E99C4B0052B82A /* Images.xcassets in Resources */,
 				C5FF109819E9A49800CA4C23 /* MainController.xib in Resources */,
 			);
@@ -232,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6067E719E99D4B0052B82A /* HTTP.swift in Sources */,
+				C5FF109B19E9A9A600CA4C23 /* AuthController.swift in Sources */,
 				C5FF109719E9A49800CA4C23 /* MainController.swift in Sources */,
 				4D6067C719E99C4B0052B82A /* AppDelegate.swift in Sources */,
 			);
@@ -348,9 +357,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PaaS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -358,9 +370,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PaaS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
