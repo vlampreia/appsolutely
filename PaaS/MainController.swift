@@ -11,6 +11,8 @@ import UIKit
 class MainController: UIViewController {
     
     var activeViewContainer: UIView? = nil;
+    var menuIsOpened = false;
+    
 //    var activeController:    
     
     override func viewDidLoad() {
@@ -18,6 +20,7 @@ class MainController: UIViewController {
         
         self.initController()
         self.loadAuthView()
+        self.addGestures()
         
         // Do any additional setup after loading the view.
     }
@@ -34,11 +37,85 @@ class MainController: UIViewController {
         self.view.addSubview(self.activeViewContainer!);
     }
     
+
+    
     func loadAuthView () {
         var authController = AuthController(nibName: "AuthController", bundle: nil);
         self.setActiveViewWith(authController);
+
     }
     
+    func loadAccountsView () {
+        //        var accountsStoryBoard = UIStoryboard(name: "Accounts",bundle:nil);
+        //  var accountListController = accountsStoryBoard.instantiateViewControllerWithIdentifier("AccountsHomeController");
+        
+        //        self.setActiveViewWith(accountListController);
+    }
+    
+    func addGestures() {
+        var swipeRightGesture = UISwipeGestureRecognizer(target: self, action: "swipeRight:");
+        
+        swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Right;
+        self.view.addGestureRecognizer(swipeRightGesture);
+        
+        
+        var swipeLeftGesture = UISwipeGestureRecognizer(target: self, action:  "swipeLeft:");
+        
+        swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Left;
+        self.view.addGestureRecognizer(swipeLeftGesture);
+        
+    }
+    
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+
+        println(sender.currentTitle!);
+        
+        var currentTitle = (sender.currentTitle!)! as String!;
+        
+        switch currentTitle {
+            case "Authenticate":
+                self.loadAuthView();
+            
+            case "Accounts":
+                self.loadAccountsView();
+            
+            default:
+                self.loadAuthView();
+            
+        }
+    }
+    
+    
+    func swipeLeft(gestureRecognizer:UISwipeGestureRecognizer) {
+        if(!self.menuIsOpened) {
+            
+            self.menuIsOpened = true;
+            
+            UIView.animateWithDuration(0.3 , animations : {
+                self.shiftHorizontally(200);
+            })
+        }
+    }
+    
+    func swipeRight(gestureRecognizer:UISwipeGestureRecognizer) {
+        if(self.menuIsOpened) {
+            
+            self.menuIsOpened = false;
+            
+            UIView.animateWithDuration(0.3 , animations : {
+                self.shiftHorizontally(-200);
+            })
+        }
+    }
+
+    func shiftHorizontally(points:Int) {
+        var frame = self.activeViewContainer!.frame;
+        frame.origin.x += CGFloat(points);
+        
+        self.activeViewContainer!.frame = frame;
+        
+    }
+   
     func setActiveViewWith(controller:UIViewController) {
         var activeSubviews = self.activeViewContainer?.subviews;
         
