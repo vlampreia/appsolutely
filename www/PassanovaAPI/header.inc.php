@@ -21,4 +21,18 @@
 
   }
 
+  function getUserID($email) {
+
+    $DB = new DatabaseConnection();
+
+    $stmt = $DB->pdo->prepare("SELECT id FROM users WHERE email = ?");
+    $stmt->bindValue(1, $email, PDO::PARAM_STR);
+    $stmt->execute();
+    $id = $stmt->fetchColumn();
+
+    return $id;
+
+  }
+
+
 ?>
