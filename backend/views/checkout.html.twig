@@ -1,11 +1,21 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-<div class="jumbotron">
+
+<div class="row" style="text-align:center; margin: 20px 0px">
+	<img src="/img/logo.png" width="100px" alt="">
+</div>
+
+<div class="jumbotron" id="recipe">
   <h1>Hello, {{name}} {{second}} !</h1>
-  <p>You just bought fucking swag login system for {{ url }} </p>
+  <p>You just bought login system for {{ url }} </p>
   <p>You soon will recieve more details at {{ email}} </p>
   <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+	
+  <div class="shade">
+	  <code>http://login.io/js/paas.js?token={{token}}</code>
+	  <p>please copy the link above and paste at the bottom of your website</p>
+  </div>
 </div>
 
 {% endblock %}

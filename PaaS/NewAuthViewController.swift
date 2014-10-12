@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -23,6 +24,10 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var previewLayer: AVCaptureVideoPreviewLayer?
     
     var imgOverlay: UIImageView?
+    
+    
+    var tick: UIImageView?
+
     
     var parent:MainController?;
     
@@ -66,6 +71,20 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         self.view.layer.addSublayer(previewLayer)
         setUpImg();
         AuthLogic = Logic();
+        
+        
+        tick = UIImageView(image: UIImage(named: "tick.png"));
+//        tick!.frame = CGRectMake(
+//            (self.view.frame.size.width/2) - 100,
+//            (self.view.frame.size.height/2) - 100,
+//            200, 200);
+
+        tick!.frame = CGRectMake(
+            100,
+            100,
+            200, 200);
+        tick!.hidden = true;
+            self.view.addSubview(tick!);
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,7 +116,7 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func setUpImg () {
         imgOverlay = UIImageView(image: UIImage(named: "01_background-02.png"));
         imgOverlay?.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-        imgOverlay?
+//        imgOverlay?
 //        imgOverlay?.center = imgOverlay!.superview!.center;
         //        imgOverlay!.image!.size =
         self.view.addSubview(imgOverlay!);
@@ -119,6 +138,32 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         if timesSent == 1 {
             return ;
         }
+        
+//        UIView.animateWithDuration(1.0,
+//            delay: 2.0,
+//            options: nil,
+//            animations: {
+//                self.tick?.alpha = 1.0;
+//            },
+//            completion: { finished in
+//                println("Bug moved left!")
+//        })
+        
+        AudioServicesPlaySystemSound(1352)
+
+        tick!.hidden = false;
+        tick!.alpha = 0.0
+        UIView.animateWithDuration(1.0, animations: {
+            self.tick!.alpha = 1.0
+            }, completion: {
+                (value: Bool) in
+                self.tick!.hidden = true;
+                println(">>> Animation done.")
+        })
+        
+        
+
+
         
         println("Got " + code);
         

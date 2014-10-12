@@ -49,7 +49,8 @@ $app->post('/checkout', function() use ($app) {
         "name"   => $_POST['first'],
         "second" => $_POST['second'],
         "email"  => $_POST['email'],
-        "url"    => $_POST['url']
+        "url"    => $_POST['url'],
+        'token'     => substr(md5(date('now')),0,20),
     );
 
     $app->render('checkout.html.twig',$params);

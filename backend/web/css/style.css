@@ -1,0 +1,12 @@
+div#recipe {
+    background: #68A5CE;
+    padding-top: 20px;
+    margin-top: 30px;
+    color: #FFF;
+}
+
+.shade p {
+    color: #DADADA;
+    padding: 10px 0px;
+    font-size: 15px;
+}
