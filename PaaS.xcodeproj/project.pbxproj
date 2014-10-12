@@ -14,6 +14,7 @@
 		4D6067E719E99D4B0052B82A /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067E619E99D4B0052B82A /* HTTP.swift */; };
 		4DCE123119E9BD55004A6CD3 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE122F19E9BD55004A6CD3 /* Data.xcdatamodeld */; };
 		4DCE123619E9C858004A6CD3 /* AccountsHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE123519E9C858004A6CD3 /* AccountsHomeController.swift */; };
+		4DCE123819EA08FC004A6CD3 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCE123719EA08FC004A6CD3 /* frame.png */; };
 		C5FF109719E9A49800CA4C23 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FF109519E9A49800CA4C23 /* MainController.swift */; };
 		C5FF109819E9A49800CA4C23 /* MainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FF109619E9A49800CA4C23 /* MainController.xib */; };
 		C5FF109C19E9A9A600CA4C23 /* AuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FF109A19E9A9A600CA4C23 /* AuthController.xib */; };
@@ -47,6 +48,7 @@
 		4D6067E619E99D4B0052B82A /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		4DCE123019E9BD55004A6CD3 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		4DCE123519E9C858004A6CD3 /* AccountsHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsHomeController.swift; sourceTree = "<group>"; };
+		4DCE123719EA08FC004A6CD3 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		C5FF109519E9A49800CA4C23 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		C5FF109619E9A49800CA4C23 /* MainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainController.xib; sourceTree = "<group>"; };
 		C5FF109A19E9A9A600CA4C23 /* AuthController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthController.xib; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		4D6067B819E99C4B0052B82A = {
 			isa = PBXGroup;
 			children = (
+				4DCE123719EA08FC004A6CD3 /* frame.png */,
 				C5FF10A519E9CE8C00CA4C23 /* Foundation.framework */,
 				C5FF10A319E9CE8300CA4C23 /* QuartzCore.framework */,
 				C5FF109D19E9C49600CA4C23 /* CoreGraphics.framework */,
@@ -256,6 +259,7 @@
 				4D6067D119E99C4B0052B82A /* LaunchScreen.xib in Resources */,
 				C5FF109C19E9A9A600CA4C23 /* AuthController.xib in Resources */,
 				4D6067CE19E99C4B0052B82A /* Images.xcassets in Resources */,
+				4DCE123819EA08FC004A6CD3 /* frame.png in Resources */,
 				C5FF109819E9A49800CA4C23 /* MainController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
