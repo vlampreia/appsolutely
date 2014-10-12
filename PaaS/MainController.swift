@@ -9,20 +9,22 @@
 import UIKit
 
 class MainController: UIViewController {
-    
+
     var activeViewContainer: UIView? = nil;
     var menuIsOpened = false;
     
-//    var activeController:    
-    
+  
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         self.initController()
-        self.loadAuthView()
         self.addGestures()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.loadAuthView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +42,8 @@ class MainController: UIViewController {
 
     
     func loadAuthView () {
-        var authController = AuthController(nibName: "AuthController", bundle: nil);
-        self.setActiveViewWith(authController);
+        var authController = NewAuthViewController();
+        self.presentViewController(authController, animated: true, completion: nil)
 
     }
     
@@ -127,6 +129,8 @@ class MainController: UIViewController {
         self.activeViewContainer?.addSubview(controller.view);
         
     }
+    
+
     
 
     /*
