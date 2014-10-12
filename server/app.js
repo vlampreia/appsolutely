@@ -1,18 +1,28 @@
+//
 var express = require('express');
+var session = require('express-session');
 var bodyParser = require('body-parser');
-var config = require('./config');
-var db = require('./models');
-var setRoutes = require('./config/routes.js')
 
+//
+var config = require(__dirname + '/config')();
+var db = require(__dirname + '/models');
+var routes = require(__dirname + '/config/routes.js')
+var auth = require(__dirname + '/config/auth.js');
 
+var passport = auth(db);
 var app = express();
 
 
 app.set('port', config.port);
+
+app.use(session({secret: 'potato'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-setRoutes(app, db);
+routes.init(config, app, db);
 
 db
   .sequelize
