@@ -99,13 +99,13 @@ var Users = function() {
           .success(function(site) {
             //if(sites.length == 1) {
               //var site = sites[0];
-              var h1sha256 = crypto.createHash('sha256');
+              var h1sha256 = crypto.createHash('md5');
 
               var hash1 = site.secret + site.token;
               h1sha256.update(hash1, 'utf8');
               hash1 = h1sha256.digest('base32');
 
-              var h2sha256 = crypto.createHash('sha256');
+              var h2sha256 = crypto.createHash('md5');
               var myHash2 = user.deviceToken + hash1;
               h2sha256.update(myHash2);
               myHash2 = h2sha256.digest('base32');
