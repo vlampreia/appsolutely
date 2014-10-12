@@ -2,6 +2,7 @@
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var crypto = require('crypto');
 
 //
 var config = require(__dirname + '/config')();
@@ -36,7 +37,7 @@ db
       });
 
       app.use(function(err, req, res, next) {
-        res.status(500).send('500 Error');
+        res.status(500).send('500 Error: ' + err);
       });
 
       app.use(function(req, res, next) {

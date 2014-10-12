@@ -1,7 +1,7 @@
 var config = {
 	development: {
 		mode: 'development',
-		port: 3000,
+		port: 80,
     paypalApi: {
       host: 'api.sandbox.paypal.com',
       port: '',

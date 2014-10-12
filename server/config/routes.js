@@ -30,8 +30,20 @@ var Routes = function() {
         res.send('Payment was cancelled');
       });
 
-      app.get('/registerUser', injectDb, function(req, res, next) {
+      app.post('/registerUser', injectDb, function(req, res, next) {
+        users.registerUser(req,res,next);
+      });
 
+      app.post('/registerDevice', injectDb, function(req, res, next) {
+        users.registerDevice(req,res,next);
+      });
+
+      app.post('/isAuthenticated', injectDb, function(req, res, next) {
+        users.isAuthenticated(req,res,next);
+      });
+
+      app.post('/login', injectDb, function(req, res, next) {
+        users.login(req,res,next);
       });
 
       app.all('/a', function(req, res, next) {
