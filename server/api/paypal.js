@@ -19,9 +19,12 @@ var PayPal = function() {
     }]
   };
 
+  var gateway;
+
   return{
     init: function(config) {
       paypal.configure(config);
+      //gateway = 2
     },
 
     create: function(req, res, next) {
