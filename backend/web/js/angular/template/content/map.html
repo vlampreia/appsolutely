@@ -1,0 +1,31 @@
+<div id="welcome-message" ng-show="!exploreMode">
+  <h1>See What We Publish. Interactive</h1>
+  <h2>
+    <span>
+      Explore Publications Of
+    </span>
+    School of Computer Science
+  </h2>
+
+  <img src="/img/logo.png" alt="" id="logo-on-map">
+</div>
+
+<div id="buttons-container" ng-show="!exploreMode">
+  <button class="btn btn-empty">
+    Browse Publications
+  </button>
+  <button class="btn btn-default" ng-click="switchExploreMode()">
+    Explore Map
+  </button>
+</div>
+
+<google-map center="map.center" options="options" zoom="map.zoom" control="map.control">
+  <markers models="institutions"
+           idKey="'institution'"
+           coords="'self'"
+           doCluster="true"
+
+          >
+  </markers> 
+</google-map>
+

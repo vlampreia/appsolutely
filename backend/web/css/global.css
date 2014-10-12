@@ -1,0 +1,291 @@
+/* line 16, ../sass/global.scss */
+#full-screen-wrapper {
+  position: relative;
+}
+/* line 19, ../sass/global.scss */
+#full-screen-wrapper #menu-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #2f323a;
+  z-index: 28;
+  width: 58px;
+  box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.21);
+}
+/* line 32, ../sass/global.scss */
+#full-screen-wrapper #menu li {
+  width: 58px;
+  height: 58px;
+  border: 1px solid #3a3e48;
+  border-bottom: 1px solid #1f2126;
+  transition: background 0.3s;
+}
+/* line 40, ../sass/global.scss */
+#full-screen-wrapper #menu li:first-child:hover {
+  background-color: #713098;
+}
+/* line 44, ../sass/global.scss */
+#full-screen-wrapper #menu li:first-child {
+  background: #7c35a8 url("../img/menu/menu.png") center no-repeat;
+  border: 1px solid #974ac6;
+  border-bottom: 1px solid #2f323a;
+}
+/* line 51, ../sass/global.scss */
+#full-screen-wrapper #menu li:hover {
+  background-color: #343740;
+  cursor: pointer;
+}
+/* line 56, ../sass/global.scss */
+#full-screen-wrapper .menu-icon {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 61, ../sass/global.scss */
+#full-screen-wrapper #menu-map {
+  background-image: url("../img/menu/map.png");
+}
+/* line 65, ../sass/global.scss */
+#full-screen-wrapper #menu-wordle {
+  background-image: url("../img/menu/wordle.png");
+}
+/* line 69, ../sass/global.scss */
+#full-screen-wrapper #menu-authors {
+  background-image: url("../img/menu/authors.png");
+}
+/* line 73, ../sass/global.scss */
+#full-screen-wrapper #menu-publications {
+  background-image: url("../img/menu/publications.png");
+}
+/* line 77, ../sass/global.scss */
+#full-screen-wrapper #menu-institutions {
+  background-image: url("../img/menu/institutions.png");
+}
+
+/* line 83, ../sass/global.scss */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 91, ../sass/global.scss */
+#screen-wrapper #extended-menu {
+  float: left;
+  min-width: 200px;
+  background: #272930;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 26;
+  transition: left 0.7s;
+  color: #FFF;
+  padding: 0px 20px;
+}
+/* line 103, ../sass/global.scss */
+#screen-wrapper #extended-menu .extended-title {
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid #2c2e36;
+}
+/* line 109, ../sass/global.scss */
+#screen-wrapper #extended-menu .extended-title:after {
+  width: 100%;
+  height: 1px;
+  padding: 0px 0px 11px;
+  border-bottom: 1px solid #1c1d22;
+  content: ' ';
+}
+/* line 118, ../sass/global.scss */
+#screen-wrapper label {
+  font-size: 12px;
+  color: #606576;
+}
+/* line 123, ../sass/global.scss */
+#screen-wrapper input {
+  background: #44464e;
+  margin-top: 5px;
+  color: #FFF;
+  border: 1px solid #1c1d22;
+  border-bottom: 0px;
+  border-right: 0px;
+}
+/* line 132, ../sass/global.scss */
+#screen-wrapper #main-content {
+  float: left;
+  width: 100%;
+}
+/* line 136, ../sass/global.scss */
+#screen-wrapper #main-content .shifted-content {
+  margin-left: 58px;
+}
+
+/* line 143, ../sass/global.scss */
+#screen-wrapper:after {
+  display: table;
+  content: ' ';
+  clear: both;
+  float: none;
+}
+
+/* line 151, ../sass/global.scss */
+.search-filters h5 {
+  color: #9297a7;
+}
+
+/* line 156, ../sass/global.scss */
+.btn-filter {
+  padding: 2px 20px;
+  background: #5d6372;
+}
+
+/* line 161, ../sass/global.scss */
+.btn-empty {
+  background: none !important;
+  padding: 2px 20px;
+  border: 1px solid #5d6372;
+}
+
+/* line 167, ../sass/global.scss */
+.angular-google-map-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 173, ../sass/global.scss */
+#author-view .angular-google-map {
+  height: 400px;
+}
+
+/* line 178, ../sass/global.scss */
+#welcome-message {
+  font-weight: normal;
+  color: #7e8497;
+  margin: 0 auto;
+  left: 0px;
+  right: 0;
+  position: absolute;
+  z-index: 20;
+  text-align: center;
+  width: 80%;
+  padding-top: 20px;
+}
+/* line 194, ../sass/global.scss */
+#welcome-message h2 {
+  width: 100%;
+  color: #a0a4b2;
+}
+/* line 197, ../sass/global.scss */
+#welcome-message h2 span {
+  color: #bcbfc9;
+  display: inline-block;
+}
+
+/* line 204, ../sass/global.scss */
+#buttons-container {
+  position: absolute;
+  bottom: 60px;
+  z-index: 24;
+  width: 100%;
+  text-align: center;
+}
+/* line 211, ../sass/global.scss */
+#buttons-container button {
+  border-color: #7c35a8;
+  background-color: #7c35a8;
+  padding: 12px 25px;
+  width: 170px;
+  color: #FFF;
+  transition: background 0.6s, color 0.6s, border 0.6s;
+}
+/* line 220, ../sass/global.scss */
+#buttons-container .btn.btn-empty {
+  color: #7c35a8;
+}
+/* line 224, ../sass/global.scss */
+#buttons-container .btn.btn-empty:hover {
+  border-color: #341647 !important;
+  background: #341647 !important;
+  color: #FFF !important;
+}
+/* line 230, ../sass/global.scss */
+#buttons-container .btn.btn-default:hover {
+  background-color: #341647;
+}
+
+/* line 235, ../sass/global.scss */
+#logo-on-map {
+  position: absolute;
+  top: 20px;
+  right: -60px;
+  width: 80px;
+}
+
+@media (min-width: 880px) {
+  /* line 243, ../sass/global.scss */
+  #welcome-message {
+    width: 100%;
+  }
+
+  /* line 247, ../sass/global.scss */
+  #logo-on-map {
+    right: 20px;
+    width: 120px;
+  }
+}
+/* line 253, ../sass/global.scss */
+.section-header {
+  padding: 10px 20px;
+}
+/* line 256, ../sass/global.scss */
+.section-header small {
+  clear: both;
+  float: none;
+  display: block;
+  padding-top: 10px;
+}
+
+/* line 264, ../sass/global.scss */
+.full-size-list li {
+  position: relative;
+  height: 140px;
+  color: #2a2d31;
+  overflow: hidden;
+}
+
+/* line 271, ../sass/global.scss */
+.full-size-list li:nth-child(odd) {
+  background: #e7e8eb;
+}
+
+/* line 275, ../sass/global.scss */
+.element-bg {
+  overflow: hidden;
+}
+/* line 277, ../sass/global.scss */
+.element-bg .index {
+  font-size: 205px;
+  line-height: 133px;
+  position: relative;
+  left: -30px;
+  color: #d9dbdf;
+}
+
+/* line 288, ../sass/global.scss */
+.element-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 50px;
+}
+/* line 294, ../sass/global.scss */
+.element-content .author-statistics {
+  text-align: right;
+  padding: 20px;
+}
+
+/* line 301, ../sass/global.scss */
+#wordleWrapper {
+  padding: 20px;
+  background: #F8F8F8;
+  border-top: 1px solid #DBD9D9;
+}

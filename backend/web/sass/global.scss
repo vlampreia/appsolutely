@@ -1,0 +1,309 @@
+@import "compass/css3/transition";
+// @import "compass/reset";
+// @import "bootstrap-compass";
+// @import "bootstrap";
+
+$menu-width:          58px;
+$menu-element-width:  58px;
+$menu-element-height: 58px;
+
+$dark-grey: #2f323a;
+$grey:      #272930;
+$purple:    #7c35a8;
+$warmGrey:  #44464e;
+$lightGrey: #9297a7;
+
+#full-screen-wrapper {
+	position: relative;
+
+	#menu-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: $dark-grey;
+		z-index: 28;
+		width: $menu-width;
+		box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.21);
+		h1,h2,h3,h4,h5,h6 {
+
+		}
+	}
+	
+	#menu li {
+		width: $menu-element-width;
+		height: $menu-element-height;
+		border: 1px solid lighten($dark-grey, 5%);
+		border-bottom: 1px solid darken($dark-grey, 7%);
+		transition: background 0.3s;
+	}
+	
+	#menu li:first-child:hover {
+		background-color: darken($purple,4%);
+	}
+
+	#menu li:first-child {
+		background: $purple url('../img/menu/menu.png') center no-repeat;
+		border: 1px solid lighten($purple, 10%);
+		border-bottom: 1px solid $dark-grey;
+
+	}
+
+	#menu li:hover {
+		background-color: lighten($dark-grey, 2%);
+		cursor: pointer;
+	}
+
+	.menu-icon {
+		background-repeat:no-repeat;
+		background-position:center;
+	}
+
+	#menu-map {
+		background-image: url('../img/menu/map.png');
+	}
+
+	#menu-wordle {
+		background-image: url('../img/menu/wordle.png');
+	}
+
+	#menu-authors {
+		background-image: url('../img/menu/authors.png');
+	}
+
+	#menu-publications {
+		background-image: url('../img/menu/publications.png');
+	}
+
+	#menu-institutions {
+		background-image: url('../img/menu/institutions.png');
+	}
+}
+
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#screen-wrapper {
+	
+	#extended-menu {
+		float: left;
+		min-width: 200px;
+		background: $grey;
+		position: absolute;
+		left:0px;
+		top:0px;
+		z-index: 26;
+		transition: left 0.7s;
+		color: #FFF;
+		padding: 0px 20px;
+
+		.extended-title {
+			width: 100%;
+			text-align: left;
+			border-bottom:1px solid lighten($grey, 2%);
+			// padding: 0px 0px 10px;
+		}
+		.extended-title:after {
+			width: 100%;
+			height: 1px;
+			padding: 0px 0px 11px;
+			border-bottom: 1px solid darken($grey, 5%);
+			content: ' ';
+		}
+	}
+
+	label {
+		font-size: 12px;
+		color: lighten($grey, 25%)
+	}
+
+	input {
+		background: $warmGrey;
+		margin-top: 5px;
+		color: #FFF;
+		border: 1px solid darken($grey,5%);
+		border-bottom: 0px;
+		border-right: 0px;
+	}
+	
+	#main-content {
+		float: left;
+		width: 100%;
+
+		.shifted-content {
+			margin-left: $menu-width;
+		}
+	}
+
+}
+
+#screen-wrapper:after {
+		display: table;
+		content: ' ';
+		clear:   both;
+		float: none;
+	}
+
+.search-filters {
+	h5 {
+		color: $lightGrey;
+	}
+}
+
+.btn-filter {
+	padding: 2px 20px;
+	background: lighten($dark-grey, 20%);
+}
+
+.btn-empty {
+	background: none !important;
+	padding: 2px 20px;
+	border: 1px solid lighten($dark-grey, 20%);
+}
+
+.angular-google-map-container {
+	width: 100%;
+	height: 100%;
+}
+
+#author-view {
+	.angular-google-map {
+		height: 400px;
+	}
+}
+
+#welcome-message {
+	font-weight: normal;
+	color: darken($lightGrey,7%);
+	margin: 0 auto;
+	left: 0px;
+	right: 0;
+	position: absolute;
+	z-index: 20;
+	text-align: center;
+	width: 80%;
+	
+	padding-top: 20px;
+
+	h1 {
+	}
+
+	h2 {
+		width: 100%;
+		color: lighten($lightGrey,5%);
+		span {
+			color: lighten($lightGrey,15%);
+			display: inline-block;
+		}
+	}
+}
+
+#buttons-container {
+	position: absolute;
+	bottom: 60px;
+	z-index: 24;
+	width: 100%;
+	text-align: center;
+
+	button {
+		border-color: $purple;
+		background-color: $purple;
+		padding: 12px 25px;
+		width: 170px;
+		color: #FFF;
+		transition: background 0.6s, color 0.6s, border 0.6s;
+	}
+	
+	.btn.btn-empty {
+		color: $purple;
+	}
+
+	.btn.btn-empty:hover {
+		border-color: darken($purple, 25%) !important;
+		background: darken($purple, 25%) !important;
+		color: #FFF !important;
+	}
+
+	.btn.btn-default:hover {
+		background-color: darken($purple, 25%);
+	}
+}
+
+#logo-on-map {
+	position: absolute;
+	top: 20px;
+	right: -60px;
+	width: 80px;
+}
+
+@media (min-width:880px) {
+	#welcome-message {
+		width: 100%;
+	}
+
+	#logo-on-map {
+		right: 20px;
+		width: 120px;
+	}
+}
+
+.section-header {
+	padding:10px 20px;
+
+	small {
+		clear: both;
+		float: none;
+		display: block;
+		padding-top:10px;
+	}
+}
+
+.full-size-list li {
+	position: relative;
+	height: 140px;
+	color: #2a2d31;
+	overflow: hidden;
+}
+
+.full-size-list li:nth-child(odd)  {
+	background: lighten($lightGrey, 30);
+}
+
+.element-bg {
+	
+	.index {
+		font-size: 205px;
+		line-height: 133px;
+		position: relative;
+		left: -30px;
+		color: #d9dbdf;
+	}
+
+	overflow: hidden;
+}
+
+.element-content {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 50px;
+
+	.author-statistics {
+		text-align: right;
+		padding: 20px;
+	}
+}
+
+
+#wordleWrapper {
+	padding: 20px;
+	background: #F8F8F8;
+	border-top: 1px solid #DBD9D9;
+}
+
+// .institution-detail  {
+// 	background: 
+// }

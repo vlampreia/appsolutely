@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="publications">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+
+    <title>
+      Passanova Admin
+      {% block title %}{% endblock %}
+    </title>
+
+    <!-- Bootstrap core /css -->
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">	
+      <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+    <!-- Custom /css -->
+    <link href="/css/global.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond./js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv./js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond./js/1.4.2/respond.min./js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+  <div class="container">
+  
+    {% block body %}
+    {% endblock %}
+        
+  </div>
+
+    {% block javascriptFooter %}
+
+
+      <script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>
+      {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> #}
+      <script src="/js/jquery-2.1.0.js"></script>
+      <script src="/js/angular.js"></script>
+
+      <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script> -->
+
+      <script src='/js/angular/libs/lodash.underscore.min.js'></script>
+      <script src='/js/angular/libs/ui-router.min.js'></script>
+      <script src='/js/angular/libs/chartjs.min.js'></script>  
+      <script src='/js/angular/libs/angular-chartjs.min.js'></script>
+      <script src='/js/angular/libs/angular-google-maps.js'></script>
+      
+      <script src="/js/libs/d3.js"></script>
+      <script src="/js/libs/d3.layout.cloud.js"></script>
+
+      <script src="/js/angular/app.js"></script>
+      
+      <script src="/js/angular/directive/FullScreenDirective.js"></script>
+      <script src="/js/angular/directive/WordleDirective.js"></script>
+
+      <script src="/js/angular/directive/MainMenuDirective.js"></script>
+
+      <script src="/js/angular/controller/MapController.js"></script>
+      <script src="/js/angular/controller/WordleController.js"></script>
+      <script src="/js/angular/controller/AuthorsController.js"></script>
+      <script src="/js/angular/controller/AuthorController.js"></script>
+      <script src="/js/angular/controller/PublicationsController.js"></script>
+      <script src="/js/angular/controller/InstitutionsController.js"></script>
+
+      <script src="/js/angular/service/AuthorService.js"></script>
+      <script src="/js/angular/service/PublicationService.js"></script>
+
+    {% endblock %}
+  </body>
+</html>

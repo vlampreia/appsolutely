@@ -10,10 +10,14 @@ import Foundation
 
 public class HTTP {
     
+    let server = "http://transitivepylons.no-ip.biz";
+  // let server = "http://httpbin.org/";
+    //let server = "soyuz-II"
+    
     var URL: NSURL? = nil;
     
-    init (_URL: String) {
-        self.URL = NSURL(string: _URL);
+    init (path: String) {
+        self.URL = NSURL(string: server + path);
     }
     
     func Get (callback: ((String?) -> Void)!) {
@@ -33,4 +37,23 @@ public class HTTP {
         }
     }
     
+    func Post (data: String, callback: ((String?) -> Void)!) {
+        if (self.URL == nil) {
+        
+            callback(nil);
+        
+        } else {
+        
+        let request = NSMutableURLRequest(URL: self.URL!);
+            request.HTTPMethod = "POST";
+            let httpdata = (data as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+            
+            request.HTTPBody = httpdata;
+            println("printing before crash")
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+            callback(NSString(data: data, encoding: NSUTF8StringEncoding))
+        }
+        
+    }
+}
 }

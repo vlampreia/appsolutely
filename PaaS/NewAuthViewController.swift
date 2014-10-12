@@ -22,6 +22,18 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var output: AVCaptureMetadataOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
+    var imgOverlay: UIImageView?
+    
+    var parent:MainController?;
+    
+    var timesSent = 0;
+    
+    
+    var AuthLogic: Logic?
+    
+    func setDeletage(parent:MainController) {
+        self.parent = parent;
+    }
     
     func setupAVStuff() {
         callbackQueue = dispatch_queue_create("hi", nil)
@@ -39,6 +51,8 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addGestures()
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -50,6 +64,8 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         previewLayer?.frame = self.view.bounds
         self.view.layer.addSublayer(previewLayer)
+        setUpImg();
+        AuthLogic = Logic();
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,7 +87,7 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 }
             }
             if (detectionString != nil) {
-                println(detectionString!);
+                handleQR(detectionString!);
                 break;
             } else {
             }
@@ -79,7 +95,12 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func setUpImg () {
-        
+        imgOverlay = UIImageView(image: UIImage(named: "01_background-02.png"));
+        imgOverlay?.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+        imgOverlay?
+//        imgOverlay?.center = imgOverlay!.superview!.center;
+        //        imgOverlay!.image!.size =
+        self.view.addSubview(imgOverlay!);
     }
     
     
@@ -92,5 +113,52 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func handleQR (code: String) {
+        if timesSent == 1 {
+            return ;
+        }
+        
+        println("Got " + code);
+        
+        var QR = AuthLogic!.parseQRCode(code);
+        println(QR!.action);
+        if (QR != nil) {
+            if (QR!.action == 0) {
+                timesSent = timesSent+1;
+                AuthLogic!.loginToServer(QR!.hash1!, secret: QR!.userSecret!, RQR: QR!.RQR!);
+            } else if (QR!.action == 1) {
+                //AuthLogic.register(QR);
+            }
+        }
+    }
+    
+    func addGestures() {
+        var swipeRightGesture = UISwipeGestureRecognizer(target: self, action: "swipeRight:");
+        swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Right;
+        self.view.addGestureRecognizer(swipeRightGesture);
+        
+        var swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: "swipeLeft:");
+        swipeLeftGesture.direction = UISwipeGestureRecognizerDirection.Left;
+        self.view.addGestureRecognizer(swipeLeftGesture);
+    }
+    
+    func swipeRight(gestureRecognizer:UISwipeGestureRecognizer) {
+        println("swiped right")
+//        self.parent?.swipeLeft(gestureRecognizer);
+        
+//        self.parent.swipeRight(gestureRecognizer);
+    }
+    
+    func swipeLeft(gestureRecognizer:UISwipeGestureRecognizer) {
+        println("swiped left")
+//        self.parent?.swipeRight(gestureRecognizer);
+        
+        //        self.parent.swipeRight(gestureRecognizer);
+    }
+    
+
+    
 
 }
