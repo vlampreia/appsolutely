@@ -22,6 +22,7 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var output: AVCaptureMetadataOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
+    
     func setupAVStuff() {
         callbackQueue = dispatch_queue_create("hi", nil)
         captureSession = AVCaptureSession()
@@ -57,8 +58,31 @@ class NewAuthViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-        println("I hate computers.")
+        var detectionString: String?;
+
+        var barCodeTypes = [AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
+            AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
+            AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode];
+        
+        for metadata in metadataObjects {
+            for type in barCodeTypes {
+                if (metadata.type == type) {
+                    detectionString = metadata.stringValue;
+                }
+            }
+            if (detectionString != nil) {
+                println(detectionString!);
+                break;
+            } else {
+            }
+        }
     }
+    
+    func setUpImg () {
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

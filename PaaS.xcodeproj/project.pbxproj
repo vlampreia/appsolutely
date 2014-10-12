@@ -12,7 +12,6 @@
 		4D6067D119E99C4B0052B82A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6067CF19E99C4B0052B82A /* LaunchScreen.xib */; };
 		4D6067DD19E99C4B0052B82A /* PaaSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067DC19E99C4B0052B82A /* PaaSTests.swift */; };
 		4D6067E719E99D4B0052B82A /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6067E619E99D4B0052B82A /* HTTP.swift */; };
-		4DCE122E19E9BA03004A6CD3 /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCE122D19E9BA03004A6CD3 /* Accounts.storyboard */; };
 		4DCE123119E9BD55004A6CD3 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE122F19E9BD55004A6CD3 /* Data.xcdatamodeld */; };
 		4DCE123619E9C858004A6CD3 /* AccountsHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE123519E9C858004A6CD3 /* AccountsHomeController.swift */; };
 		C5FF109719E9A49800CA4C23 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FF109519E9A49800CA4C23 /* MainController.swift */; };
@@ -46,7 +45,6 @@
 		4D6067DB19E99C4B0052B82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D6067DC19E99C4B0052B82A /* PaaSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaaSTests.swift; sourceTree = "<group>"; };
 		4D6067E619E99D4B0052B82A /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
-		4DCE122D19E9BA03004A6CD3 /* Accounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Accounts.storyboard; path = ../Accounts.storyboard; sourceTree = "<group>"; };
 		4DCE123019E9BD55004A6CD3 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		4DCE123519E9C858004A6CD3 /* AccountsHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsHomeController.swift; sourceTree = "<group>"; };
 		C5FF109519E9A49800CA4C23 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 		C5FF109419E9A46500CA4C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4DCE122D19E9BA03004A6CD3 /* Accounts.storyboard */,
 				C5FF109619E9A49800CA4C23 /* MainController.xib */,
 				C5FF109A19E9A9A600CA4C23 /* AuthController.xib */,
 			);
@@ -223,11 +220,11 @@
 				TargetAttributes = {
 					4D6067C019E99C4B0052B82A = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = C22NCN7Y4U;
+						DevelopmentTeam = 756MSMTJ5A;
 					};
 					4D6067D519E99C4B0052B82A = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = C22NCN7Y4U;
+						DevelopmentTeam = 756MSMTJ5A;
 						TestTargetID = 4D6067C019E99C4B0052B82A;
 					};
 				};
@@ -257,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6067D119E99C4B0052B82A /* LaunchScreen.xib in Resources */,
-				4DCE122E19E9BA03004A6CD3 /* Accounts.storyboard in Resources */,
 				C5FF109C19E9A9A600CA4C23 /* AuthController.xib in Resources */,
 				4D6067CE19E99C4B0052B82A /* Images.xcassets in Resources */,
 				C5FF109819E9A49800CA4C23 /* MainController.xib in Resources */,
