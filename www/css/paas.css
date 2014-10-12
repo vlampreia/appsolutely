@@ -1,0 +1,120 @@
+#pass-login h1 {
+	text-transform: uppercase;
+	color: #A09B9B;
+	text-align: center;
+	margin-bottom: 45px;
+}
+
+#pass-login {
+	padding: 20px 0px;
+	position: relative;
+	top: 0px;
+	transition: top 1s;
+	width: 350px; margin: 0px auto; 
+	font-family: 'Arial';
+}
+
+#login-screen {
+	position: relative;
+	top: 0px;
+	transition: top 1s;
+}
+
+#pass-login input {
+	width: 350px;
+	border-style: none none solid;
+	border-bottom-width: 1px;
+	border-bottom-color: rgb(39, 144, 194);
+	font-size: 17px;
+	padding-bottom: 15px;
+	text-transform: uppercase;
+	line-height: 20px;
+	font-weight: normal;
+	color: #B9B5B5;
+}
+
+#pass-login input:focus {
+	outline: none;
+}
+
+#pass-login *::-webkit-input-placeholder {
+    color: #A8D6EC;
+    font-weight: normal;
+}
+
+#pass-login .button {
+	display: block;
+	width: 350px;
+	margin-top: 20px;
+	border-radius: 3px;
+	color: #FFF;
+	font-size: 18px;
+	padding: 10px 0px;
+	transition: background 0.6s;
+	cursor: pointer;
+}
+
+#pass-login .button.login.active {
+	background: #3EADE0;
+	border: 1px solid #3EADE0;
+}
+
+#pass-login .button.login.active:hover {
+	background: #4F7AA1;
+	border: 1px solid #426D94;
+
+}
+
+#pass-login a.signup {
+    color: #7A7A7A;
+    font-size: 13px;
+    float: right;
+    text-transform: none;
+    text-decoration: none;
+}
+
+div#logo-wrapper img {
+    width: 160px;
+}
+
+#logo-wrapper {
+    text-align: center;
+}
+
+.animate-top {
+    top: -500px !important;
+    position: relative;
+}
+
+div#pass-qr {
+    text-align: center;
+    color: #AFAFAF;
+}
+
+.animation-spin {
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 500ms
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+p.help {
+    margin-top: 30px;
+}
+
+div#logo-wrapper.last-step {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #299ACF;
+    padding-bottom: 30px;
+}
