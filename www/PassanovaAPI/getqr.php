@@ -10,7 +10,7 @@
 
   $RQR = substr(hash('sha256', time() + 'salttobechangedrandomlyhere'), 0, 32);
 
-  $code = '0|' . md5($config['PublicToken'] . 'salt' . $config['PrivateToken']) . '|' . $secret . '|' . $RQR;
+  $code = '0|' . md5($config['PublicToken'] .  $config['PrivateToken']) . '|' . $secret . '|' . $RQR;
 
   generateQRCode($code, $RQR);
   
