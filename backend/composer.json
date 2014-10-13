@@ -1,0 +1,16 @@
+{
+    "require": {
+        "pimple/pimple": "~2.1",
+        "slim/slim": "2.*",
+        "slim/views": "0.1.*",
+        "twig/twig": "*",
+        "braintree/braintree_php" : "2.32.0"
+    },
+    "autoload" : {
+		"psr-0" : {
+	        "Publications": "",
+	        "Publications\\Harvester"   : "Publications/",
+            "Siemien": "vendor/"
+	    }
+    }
+}  

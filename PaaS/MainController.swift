@@ -18,13 +18,19 @@ class MainController: UIViewController {
         
         super.viewDidLoad()
         self.initController()
-        self.addGestures()
+//        self.loadAuthView()
+   
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.loadAuthView()
+        self.loadAuthView();
+        self.addGestures();
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+//        self.loadAuthView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +49,8 @@ class MainController: UIViewController {
     
     func loadAuthView () {
         var authController = NewAuthViewController();
+        authController.setDeletage(self);
+//        self.setActiveViewWith(authController);
         self.presentViewController(authController, animated: true, completion: nil)
 
     }
@@ -55,13 +63,13 @@ class MainController: UIViewController {
     }
     
     func addGestures() {
-        var swipeRightGesture = UISwipeGestureRecognizer(target: self, action: "swipeRight:");
+        var swipeRightGesture = UISwipeGestureRecognizer(target: self.activeViewContainer!, action: "swipeRight:");
         
         swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Right;
         self.view.addGestureRecognizer(swipeRightGesture);
         
         
-        var swipeLeftGesture = UISwipeGestureRecognizer(target: self, action:  "swipeLeft:");
+        var swipeLeftGesture = UISwipeGestureRecognizer(target: self.activeViewContainer!, action:  "swipeLeft:");
         
         swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Left;
         self.view.addGestureRecognizer(swipeLeftGesture);
@@ -89,6 +97,7 @@ class MainController: UIViewController {
     
     
     func swipeLeft(gestureRecognizer:UISwipeGestureRecognizer) {
+        println("SWIPING");
         if(!self.menuIsOpened) {
             
             self.menuIsOpened = true;
@@ -98,6 +107,7 @@ class MainController: UIViewController {
             })
         }
     }
+    
     
     func swipeRight(gestureRecognizer:UISwipeGestureRecognizer) {
         if(self.menuIsOpened) {
@@ -111,13 +121,14 @@ class MainController: UIViewController {
     }
 
     func shiftHorizontally(points:Int) {
-        var frame = self.activeViewContainer!.frame;
-        frame.origin.x += CGFloat(points);
+        var frame = self.presentedViewController?.view.frame;
         
-        self.activeViewContainer!.frame = frame;
+        frame?.origin.x += CGFloat(points);
+        
+        self.presentedViewController?.view.frame = frame!;
         
     }
-   
+//   
     func setActiveViewWith(controller:UIViewController) {
         var activeSubviews = self.activeViewContainer?.subviews;
         
