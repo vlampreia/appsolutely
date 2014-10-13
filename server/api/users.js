@@ -4,11 +4,12 @@ var Users = function() {
 
   return {
     registerUser: function(req, res, next) {
-      var regCode = req.params.regCode;
-      var siteToken = req.params.siteToken;
-      
+      var regCode = req.body.regCode;
+      var siteToken = req.body.siteToken;
+    	var userSecret = req.body.userSecret;
+
       //TODO: CREATE SECRET
-      var userSecret = 'dolphins';
+      //var userSecret = 'dolphins';
 
       var registration = req.db.Registration.build({
         regCode: regCode,
@@ -22,20 +23,15 @@ var Users = function() {
     },
 
     registerDevice: function(req, res, next) {
-      var regCode = req.params.regCode;
-      var deviceCode = req.params.deviceCode;
+      var regCode = req.body.regCode;
+      var deviceCode = req.body.deviceCode;
 
-      req.db.Registration.find({where: {regCode: regCode}, limit:1})
-      .success(function(registrations) {
-
-        if(registrations.length == 1) {
+      req.db.Registration.find({where: {regCode: regCode}})
+      .success(function(registration) {
           var registration = registrations[0];
 
-          req.db.Site.find({where: {token: registration.siteToken}, limit:1})
-          .success(function(sites) {
-            if(sites.length == 1) {
-              var site = sites[0];
-              
+          req.db.Site.find({where: {token: registration.siteToken}})
+          .success(function(site) {
               var user = req.db.User.build({
                 secret: registration.userSecret,
                 deviceToken: deviceCode
@@ -46,27 +42,32 @@ var Users = function() {
                   site.addUser(user).success(function() {
                     return res.send('Device registered');
                   });
-                } else {
+							} else {
                   return res.send('Error registering user');
                 };
               });
-
-            } else {
-              return res.send('Invalid site token');
-            };
           })
           .error(function(err) {
             return res.send('Error retrieving site');
           });
-
-        } else {
-          return res.send('Invalid registration token')
-        };
       })
       .error(function(err) {
         res.send('Error retrieving registration');
       });
     },
+
+		isRegistered: function(req, res, next) {
+			var regCode = req.body.regCode;
+			req.db.Registration.find({where:{regCode:regCode}})
+			.success(function(registration) {
+				req.db.User.find({where:{secret:registration.userSecret}})
+				.success(function(user) {
+					req.send('success');
+				}).error(function(err) {
+					req.send('');
+				});
+			});
+		},
 
     isAuthenticated: function(req, res, next) {
       var rqr = req.body.rqr;
@@ -77,10 +78,12 @@ var Users = function() {
           return res.send({hash3: authentication.hash3});
         } else {
           console.log("NOT AUTHENTICATED !");
+					return res.send('no fuck off');
         };
       })
       .error(function(err) {
-        return res.send('Error retrieving authentication');
+        //return res.send('Error retrieving authentication');
+				res.send('');
       });
     },
 
@@ -103,16 +106,22 @@ var Users = function() {
 
               var hash1 = site.secret + site.token;
               h1sha256.update(hash1, 'utf8');
-              hash1 = h1sha256.digest('base32');
+              hash1 = h1sha256.digest('hex');
 
               var h2sha256 = crypto.createHash('md5');
               var myHash2 = user.deviceToken + hash1;
               h2sha256.update(myHash2);
-              myHash2 = h2sha256.digest('base32');
+              myHash2 = h2sha256.digest('hex');
+
+							console.log('myhash2: ', myHash2, ' hash2: ', hash2);
 
               if(myHash2 == hash2) {
                 console.log('hashes match');
-                var hash3 = site.secret + site.secret + userSecret;
+                var hash3 = site.secret + site.token + userSecret;
+								var h = crypto.createHash('md5');
+								h.update(hash3, 'utf8');
+								hash3 = h.digest('hex');
+
                 var auth = req.db.Authentication.build({
                   rqr: rqr,
                   authenticated: true,
@@ -121,7 +130,7 @@ var Users = function() {
 
                 auth.save().success(function(auth) {
                   console.log('auth saved');
-                  return res.send('done');
+                  return res.send('success');
                 })
                 .error(function(err) {
                   console.log('error auth');
@@ -129,8 +138,15 @@ var Users = function() {
                 });
               } else {
                 console.log('auth error');
-                return res.send('Authentication error');
-              }
+								var auth = req.db.Authentication.build({
+									rqr: rqr,
+									authenticated: false,
+									hash3: ' '
+								});
+								auth.save().success(function(auth) {
+                	return res.send('Authentication error');
+								});
+              };
             //} else {
             //  return res.send('Not registered to a site. This is bad?!??!?!');
             //};

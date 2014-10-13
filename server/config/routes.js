@@ -18,6 +18,12 @@ var Routes = function() {
 
       paypal.init(config.paypalApi);
 
+      app.all('/*', function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authorisation-Token");
+        next();
+      });
+
       app.get('/createPayPalPayment', function(req, res, next) {
         paypal.create(req, res, next);
       });
@@ -38,15 +44,14 @@ var Routes = function() {
         users.registerDevice(req,res,next);
       });
 
+			app.post('/isRegistered', injectDb, function(req, res, next) {
+				users.isRegistered(req, res, next);
+			});
+
       app.post('/isAuthenticated', injectDb, function(req, res, next) {
         users.isAuthenticated(req,res,next);
       });
 
-      app.all('/*', function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authorisation-Token");
-        next();
-      });
 
       app.post('/login', injectDb, function(req, res, next) {
         users.login(req,res,next);

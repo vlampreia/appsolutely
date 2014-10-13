@@ -4,7 +4,7 @@ var Sequelize = require('sequelize');
 var lodash = require('lodash');
 
 //TODO: Load credentials from file
-var sequelize = new Sequelize('appsolutely', 'root', '02010155', {
+var sequelize = new Sequelize('appsolutely', 'root', '', {
 	dialectOptions: {
 		//multipleStatements: true
 	}
